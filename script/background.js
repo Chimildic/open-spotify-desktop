@@ -16,7 +16,7 @@ function createUrlToDesktopApp(urlSource) {
 }
 
 function openNewTab(url) {
-    chrome.tabs.create({ url: url });
+    chrome.tabs.create({ url: url, selected: false });
 }
 
 function closeSelectedTab(callback) {
