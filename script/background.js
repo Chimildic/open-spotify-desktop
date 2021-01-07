@@ -19,7 +19,8 @@ function createUrlToDesktopApp(urlSource) {
     }
 
     function parse() {
-        let groups = urlSource.match(/[\/\&](track|playlist|album|artist|show|episode)\/([^\&\#\/\?]+)/i);
+        let pattern = '\/(track|playlist|album|artist|show|episode|user)\/([^\#\/\?]+)';
+        let groups = urlSource.match(new RegExp(pattern, 'i'));
         if (groups != null && groups.length == 3) {
             return `/page/redirect.html?url=spotify:${groups[1]}:${groups[2]}`;
         }
