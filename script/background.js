@@ -29,7 +29,7 @@ function createUrlToDesktop(url) {
 }
 
 function openTab(url) {
-    chrome.tabs.create({ url: `/redirect.html?url=${url}` });
+    chrome.tabs.create({ url: `/page/redirect.html?url=${url}` });
 }
 
 function closeTab(url, callback) {
