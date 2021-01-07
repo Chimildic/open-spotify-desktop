@@ -1,0 +1,5 @@
+{
+    "ext_name": { "message": "Open Spotify Desktop" },
+    "ext_short_name": { "message": "Open Spotify Desktop" },
+    "ext_description": { "message": "Redirect all valid URL to Spotify Desktop App" }
+}
