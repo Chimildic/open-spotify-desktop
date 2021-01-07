@@ -1,18 +1,18 @@
 # Open Spotify Desktop
 
-The extension checks params on "open.spotify.com" and redirects to the desktop app if it is a valid URL. Only in case open a new tab with URL.
+The extension checks the URL parameters "open.spotify.com". If they are correct, the tab closes and the Spotify Desktop app opens. It works only in the case of a new tab (for example, when you click from a Reddit message) or when you refresh the page with the correct parameters for the redirection.
 
-At the first redirection, set a setting "always allow" in order to do a redirection auto in future.
+For the first redirect, set the "always allow" option so that the redirect will work automatically in the future.
 
-In order to disable redirection, disable the extension in browser.
+To disable redirection, disable the extension in the browser.
 
 Available on  [Chrome Web Store](https://chrome.google.com/webstore/detail/pnbnpemckkkiilpamimpoadnfjkchfjo)
 
 # Открыть в Spotify Desktop
 
-Расширение проверяет параметры адреса "open.spotify.com" и перенаправляет на настольное приложение, если они корректны. Работает только в том случае, если открыть новую вкладку с таким адресом.
+Расширение проверяет параметры адреса "open.spotify.com". Если они корректны, вкладка закроется, откроется приложение Spotify Desktop. Работает только в случае новой вкладки (например, при переходе из сообщения ВКонтакте) или при обновлении страницы с корректными параметрами для перехода.
 
-При первом перенаправлении, установите параметр "всегда разрешать", чтобы в будущем выполнить автоматическое перенаправление.
+При первом перенаправлении, установите параметр "всегда разрешать", чтобы в будущем перенаправление работало автоматически.
 
 Чтобы отключить перенаправление, отключите расширение в браузере.
 
