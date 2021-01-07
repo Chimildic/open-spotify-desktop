@@ -1,40 +1,38 @@
 let filter = { urls: ['*://open.spotify.com/*'] };
 let extraInfoSpec = ['blocking'];
-chrome.webRequest.onBeforeRequest.addListener(onBeforeRequestToSpotify, filter, extraInfoSpec);
+chrome.webRequest.onBeforeRequest.addListener(onBeforeRequest, filter, extraInfoSpec);
 
-function onBeforeRequestToSpotify(details) {
-    let modifiedUrl = createUrlToDesktop(details.url);
+function onBeforeRequest(details) {
+    let modifiedUrl = createUrlToDesktopApp(details.url) || '';
     if (modifiedUrl.length > 0) {
-        closeTab(details.url, () => openTab(modifiedUrl));
+        closeSelectedTab(details.url, () => openNewTab(modifiedUrl));
     }
 }
 
-function createUrlToDesktop(url) {
-    let modifiedUrl;
-    if (isValidUrl()) {
-        modifiedUrl = parseUrl();
-    }
-    return modifiedUrl || '';
-
-    function isValidUrl() {
-        return !['/embed', '/log'].some((str) => url.includes(str));
+function createUrlToDesktopApp(urlSource) {
+    if (isValidUrlSource()) {
+        return parse();
     }
 
-    function parseUrl() {
-        let groups = url.match(/[\/\&](track|playlist|album|artist|show|episode)\/([^\&\#\/\?]+)/i);
-        if (groups && groups.length == 3) {
-            return `spotify:${groups[1]}:${groups[2]}`;
+    function isValidUrlSource() {
+        return !['/embed', '/log'].some((str) => urlSource.includes(str));
+    }
+
+    function parse() {
+        let groups = urlSource.match(/[\/\&](track|playlist|album|artist|show|episode)\/([^\&\#\/\?]+)/i);
+        if (groups != null && groups.length == 3) {
+            return `/page/redirect.html?url=spotify:${groups[1]}:${groups[2]}`;
         }
     }
 }
 
-function openTab(url) {
-    chrome.tabs.create({ url: `/page/redirect.html?url=${url}` });
+function openNewTab(url) {
+    chrome.tabs.create({ url: url });
 }
 
-function closeTab(url, callback) {
+function closeSelectedTab(url, callback) {
     chrome.tabs.getSelected((tab) => {
-        if (tab != undefined && tab.id > 0 && (tab.pendingUrl === url || tab.url === url)) {
+        if (typeof tab == 'object' && tab.id > 0 && (tab.pendingUrl === url || tab.url === url)) {
             chrome.tabs.remove(tab.id, callback);
         }
     });
