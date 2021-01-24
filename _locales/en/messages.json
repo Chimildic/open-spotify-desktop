@@ -5,5 +5,6 @@
     "redirect_title": { "message": "Redirect to Spotify Desktop" },
     "feedback_title": { "message": "Feedback" },
     "feedback_msg": { "message": "Please write a feedback" },
-    "feedback_link_to": { "message": "Link to" }
+    "feedback_link_to": { "message": "Link to" },
+    "share_twitter": { "message": "A useful extension. Opens links in Spotify Desktop App. @Spotify" }
 }

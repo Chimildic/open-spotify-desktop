@@ -5,17 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo/icon16.png" />
         <link rel="stylesheet" href="/style/bulma.min.css" />
+        <link rel="stylesheet" href="/style/colors.css">
         <script src="/script/feedback.js"></script>
         <title data-locale="feedback_title">Feedback</title>
     </head>
     <body>
-        <div class="container mt-5">
-            <div class="columns is-centered">
+        <header class="hero mt-5">
+            <div class="container">
                 <div class="card">
                     <div class="card-content">
                         <div class="media">
                             <div class="media-left">
-                                <figure class="image is-48x48 level-item">
+                                <figure class="image is-48x48">
                                     <img src="/logo/icon128.png" />
                                 </figure>
                             </div>
@@ -32,7 +33,15 @@
                         </p>
                     </footer>
                 </div>
+                <div class="is-flex is-justify-content-space-around m-5">
+                    <figure class="image is-32x32">
+                        <a id="hrefTwitter" target="_blank"><img src="/logo/twitter.svg" class="icon-twitter" /></a>
+                    </figure>
+                    <figure class="image is-32x32">
+                        <a href="https://github.com/Chimildic/open-spotify-desktop" target="_blank"><img src="/logo/github.svg" /></a>
+                    </figure>
+                </div>
             </div>
-        </div>
+        </header>
     </body>
 </html>

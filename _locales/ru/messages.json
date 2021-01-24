@@ -5,5 +5,6 @@
     "redirect_title": { "message": "Перенаправление в Spotify Desktop" },
     "feedback_title": { "message": "Отзыв расширению" },
     "feedback_msg": { "message": "Пожалуйста, поставьте оценку расширению" },
-    "feedback_link_to": { "message": "Перейти в" }
+    "feedback_link_to": { "message": "Перейти в" },
+    "share_twitter": { "message": "Полезное расширение. Открывает ссылки в Spotify Desktop. @SpotifyRussia @Spotify" }
 }
