@@ -4,24 +4,28 @@ const DEFAULT_OPTIONS = {
     strDateInstall: new Date().toUTCString(),
 };
 
-function patchCurrentOptions() {
+function patchOptions() {
     chrome.storage.sync.get(null, (items) => {
-        let defaultKeys = Object.keys(DEFAULT_OPTIONS);
-        defaultKeys.forEach((key) => {
+        upToDefault(items);
+        downToDefault(items);
+        setOptions(items);
+    });
+
+    function upToDefault(items) {
+        Object.keys(DEFAULT_OPTIONS).forEach((key) => {
             if (!items.hasOwnProperty(key) || typeof items[key] != typeof DEFAULT_OPTIONS[key]) {
                 items[key] = DEFAULT_OPTIONS[key];
             }
         });
+    }
 
-        let currentKeys = Object.keys(items);
-        currentKeys.forEach((key) => {
+    function downToDefault(items) {
+        Object.keys(items).forEach((key) => {
             if (!DEFAULT_OPTIONS.hasOwnProperty(key)) {
                 delete items[key];
             }
         });
-
-        setOptions(items);
-    });
+    }
 }
 
 function setDefaultOptions() {

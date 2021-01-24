@@ -5,7 +5,7 @@ function onInstalled(details) {
     if (details.reason == 'install') {
         setDefaultOptions();
     } else if (details.reason == 'update') {
-        patchCurrentOptions();
+        patchOptions();
     }
 }
 
