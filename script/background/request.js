@@ -5,7 +5,7 @@ chrome.webRequest.onBeforeRequest.addListener(onBeforeRequest, filter, extraInfo
 function onBeforeRequest(details) {
     let modifiedUrl = createUrlToDesktopApp(details.url);
     if (modifiedUrl.length > 0) {
-        closeSelectedTab(() => openNewTab(modifiedUrl));
+        closeSelectedTab(() => openNewTab(modifiedUrl, () => showFeedbackPage()));
     }
 }
 
@@ -13,16 +13,4 @@ function createUrlToDesktopApp(urlSource) {
     let pattern = 'open.spotify.com/(track|playlist|album|artist|show|episode|concert|user)/([^?/#& ]+)';
     let [fullMatch, type, id] = urlSource.match(new RegExp(pattern, 'i')) || [];
     return fullMatch ? `/page/redirect.html?url=spotify:${type}:${id}` : '';
-}
-
-function openNewTab(url) {
-    chrome.tabs.create({ url: url, selected: false });
-}
-
-function closeSelectedTab(callback) {
-    chrome.tabs.getSelected((tab) => {
-        if (typeof tab == 'object' && tab.id > 0) {
-            chrome.tabs.remove(tab.id, callback);
-        }
-    });
 }
