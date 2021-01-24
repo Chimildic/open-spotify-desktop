@@ -2,7 +2,8 @@
     "ext_name": { "message": "Open Spotify Desktop" },
     "ext_short_name": { "message": "Open Spotify Desktop" },
     "ext_description": { "message": "Redirect all valid URL to Spotify Desktop App" },
+    "redirect_title": { "message": "Redirect to Spotify Desktop" },
     "feedback_title": { "message": "Feedback" },
     "feedback_msg": { "message": "Please write a feedback" },
-    "feedback_link_to": { "message": "Link to"}
+    "feedback_link_to": { "message": "Link to" }
 }
