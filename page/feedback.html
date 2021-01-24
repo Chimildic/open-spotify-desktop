@@ -6,7 +6,7 @@
         <link rel="icon" href="/logo/icon16.png" />
         <link rel="stylesheet" href="/style/bulma.min.css" />
         <script src="/script/feedback.js"></script>
-        <title>Отзыв расширению</title>
+        <title data-locale="feedback_title">Feedback</title>
     </head>
     <body>
         <div class="container mt-5">
@@ -20,17 +20,15 @@
                                 </figure>
                             </div>
                             <div class="media-content">
-                                <p class="title is-4">Отзыв расширению</p>
-                                <p class="subtitle is-6">Open Spotify Desktop</p>
+                                <p class="title is-4" data-locale="feedback_title"></p>
+                                <p class="subtitle is-6" data-locale="ext_short_name"></p>
                             </div>
                         </div>
-                        <p class="subtitle">Пожалуйста, поставьте оценку расширению</p>
+                        <p class="subtitle" data-locale="feedback_msg"></p>
                     </div>
                     <footer class="card-footer">
                         <p class="card-footer-item">
-                            <span>
-                                Перейти в <a id="onClickWebStorePage">Chrome Web Store</a>
-                            </span>
+                            <span><span data-locale="feedback_link_to"></span> <a id="onClickWebStorePage">Chrome Web Store</a></span>
                         </p>
                     </footer>
                 </div>

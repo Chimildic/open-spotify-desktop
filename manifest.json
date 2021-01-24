@@ -6,9 +6,9 @@
     "manifest_version": 2,
     "author": "Chimildic",
     "default_locale": "en",
-    "permissions": ["webRequest", "webRequestBlocking", "*://open.spotify.com/*"],
+    "permissions": ["storage", "webRequest", "webRequestBlocking", "*://open.spotify.com/*"],
     "background": {
-        "scripts": ["/script/background.js"],
+        "scripts": ["/script/background/background.js", "/script/background/request.js", "/script/background/options.js"],
         "persistent": true
     },
     "icons": {

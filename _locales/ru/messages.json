@@ -1,5 +1,8 @@
 {
     "ext_name": { "message": "Открыть в Spotify Desktop" },
     "ext_short_name": { "message": "Открыть в Spotify Desktop" },
-    "ext_description": { "message": "Перенаправляет все допустимые ссылки в приложение Spotify Desktop" }
+    "ext_description": { "message": "Перенаправляет все допустимые ссылки в приложение Spotify Desktop" },
+    "feedback_title": { "message": "Отзыв расширению" },
+    "feedback_msg": { "message": "Пожалуйста, поставьте оценку расширению" },
+    "feedback_link_to": { "message": "Перейти в"}
 }
