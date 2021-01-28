@@ -1,15 +1,3 @@
-function openNewTab(url, callback) {
-    chrome.tabs.create({ url: url, selected: false }, callback);
-}
-
-function closeSelectedTab(callback) {
-    chrome.tabs.getSelected((tab) => {
-        if (typeof tab == 'object' && tab.id > 0) {
-            chrome.tabs.remove(tab.id, callback);
-        }
-    });
-}
-
 function showFeedbackPage() {
     chrome.storage.sync.get(null, function (items) {
         if (canShowFeedbackPage(items)) {
@@ -29,4 +17,22 @@ function canShowFeedbackPage(items) {
 
 function diffDays(dateOne, dateTwo) {
     return (dateOne - dateTwo) / (60 * 60 * 24 * 1000);
+}
+
+function openNewTab(url, callback) {
+    chrome.tabs.create({ url: url, selected: false }, callback);
+}
+
+function closeSelectedTab(callback) {
+    chrome.tabs.getSelected((tab) => {
+        if (typeof tab == 'object' && tab.id > 0) {
+            chrome.tabs.remove(tab.id, callback);
+        }
+    });
+}
+
+function canCloseSelectedTab(callback) {
+    chrome.tabs.query({ currentWindow: true }, (tabs) => {
+        callback(tabs.length > 1);
+    });
 }

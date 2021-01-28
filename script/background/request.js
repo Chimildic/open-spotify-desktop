@@ -4,8 +4,16 @@ chrome.webRequest.onBeforeRequest.addListener(onBeforeRequest, filter, extraInfo
 
 function onBeforeRequest(details) {
     let modifiedUrl = createUrlToDesktopApp(details.url);
-    if (modifiedUrl.length > 0) {
-        closeSelectedTab(() => openNewTab(modifiedUrl, () => showFeedbackPage()));
+    if (modifiedUrl.length == 0) {
+        return;
+    }
+
+    canCloseSelectedTab((result) => {
+        result ? closeSelectedTab(callback) : callback();
+    });
+
+    function callback(){
+        openNewTab(modifiedUrl, () => showFeedbackPage());
     }
 }
 
