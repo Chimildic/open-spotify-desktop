@@ -9,6 +9,7 @@
     "permissions": ["storage", "webRequest", "webRequestBlocking", "*://open.spotify.com/*"],
     "background": {
         "scripts": [
+            "/script/background/background.js",
             "/script/background/utils.js",
             "/script/background/options.js",
             "/script/background/request.js"
@@ -23,5 +24,6 @@
         "128": "/logo/icon128.png",
         "256": "/logo/icon256.png",
         "512": "/logo/icon512.png"
-    }
+    },
+    "homepage_url": "https://github.com/Chimildic/open-spotify-desktop"
 }
