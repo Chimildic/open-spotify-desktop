@@ -7,7 +7,7 @@ function showFeedbackPage() {
 }
 
 function canShowFeedbackPage(items) {
-    if (items.canShownFeedback) {
+    if (items.canShowFeedback) {
         let dateInstall = new Date(items.strDateInstall);
         let dateLastShown = new Date(items.lastShownFeedback);
         let today = new Date();

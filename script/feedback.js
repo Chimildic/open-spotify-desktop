@@ -20,7 +20,7 @@ function setHrefShare() {
 
 function onClickWebStorePage() {
     window.open(WEBSTORE_PAGE);
-    setOptions({ canShownFeedback: false });
+    setOptions({ canShowFeedback: false });
 }
 
 function setOptions(content) {

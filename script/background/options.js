@@ -1,5 +1,5 @@
 const DEFAULT_OPTIONS = {
-    canShownFeedback: true,
+    canShowFeedback: true,
     lastShownFeedback: new Date().toUTCString(),
     strDateInstall: new Date().toUTCString(),
 };
