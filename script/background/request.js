@@ -1,18 +1,22 @@
-let filter = { urls: ['*://open.spotify.com/*'] };
-let extraInfoSpec = ['blocking'];
-chrome.webRequest.onBeforeRequest.addListener(onBeforeRequest, filter, extraInfoSpec);
+chrome.tabs.onUpdated.addListener(onTabsUpdated);
 
-function onBeforeRequest(details) {
-    let modifiedUrl = createUrlToDesktopApp(details.url);
+function onTabsUpdated(tabId, changeInfo, tab) {
+    if (changeInfo.hasOwnProperty('url')) {
+        onRequest(tabId, tab.url);
+    }
+}
+
+function onRequest(tabId, url) {
+    let modifiedUrl = createUrlToDesktopApp(url);
     if (modifiedUrl.length == 0) {
         return;
     }
 
-    canCloseSelectedTab((result) => {
-        result ? closeSelectedTab(callback) : callback();
+    canCloseTab((result) => {
+        result ? closeTab(tabId, onRedirect) : onRedirect();
     });
 
-    function callback(){
+    function onRedirect() {
         openNewTab(modifiedUrl, () => showFeedbackPage());
     }
 }

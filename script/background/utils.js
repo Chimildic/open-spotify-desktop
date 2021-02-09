@@ -23,15 +23,11 @@ function openNewTab(url, callback) {
     chrome.tabs.create({ url: url, selected: false }, callback);
 }
 
-function closeSelectedTab(callback) {
-    chrome.tabs.getSelected((tab) => {
-        if (typeof tab == 'object' && tab.id > 0) {
-            chrome.tabs.remove(tab.id, callback);
-        }
-    });
+function closeTab(tabId, callback) {
+    chrome.tabs.remove(tabId, callback);
 }
 
-function canCloseSelectedTab(callback) {
+function canCloseTab(callback) {
     chrome.tabs.query({ currentWindow: true }, (tabs) => {
         callback(tabs.length > 1);
     });

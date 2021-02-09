@@ -2,19 +2,14 @@
     "name": "__MSG_ext_name__",
     "short_name": "__MSG_ext_short_name__",
     "description": "__MSG_ext_description__",
-    "version": "0.0.4",
-    "manifest_version": 2,
+    "version": "0.0.5",
+    "manifest_version": 3,
     "author": "Chimildic",
     "default_locale": "en",
-    "permissions": ["storage", "webRequest", "webRequestBlocking", "*://open.spotify.com/*"],
+    "permissions": ["storage"],
+    "host_permissions": ["*://open.spotify.com/*"],
     "background": {
-        "scripts": [
-            "/script/background/background.js",
-            "/script/background/utils.js",
-            "/script/background/options.js",
-            "/script/background/request.js"
-        ],
-        "persistent": true
+        "service_worker": "worker.js"
     },
     "icons": {
         "16": "/logo/icon16.png",
