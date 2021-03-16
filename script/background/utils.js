@@ -27,7 +27,10 @@ function closeTab(tabId) {
     return chrome.tabs.remove(tabId);
 }
 
-async function canCloseTab() {
-    let tabs = await chrome.tabs.query({ currentWindow: true });
-    return tabs.length > 1;
+function canCloseTab() {
+    return new Promise((resolve, reject) => {
+        chrome.tabs.query({ currentWindow: true }, (tabs) => {
+            resolve(tabs.length > 1);
+        });
+    });
 }
