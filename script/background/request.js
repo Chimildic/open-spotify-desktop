@@ -6,19 +6,15 @@ function onTabsUpdated(tabId, changeInfo, tab) {
     }
 }
 
-function onRequest(tabId, url) {
+async function onRequest(tabId, url) {
     let modifiedUrl = createUrlToDesktopApp(url);
     if (modifiedUrl.length == 0) {
         return;
+    } else if (await canCloseTab()) {
+        closeTab(tabId);
     }
-
-    canCloseTab((result) => {
-        result ? closeTab(tabId, onRedirect) : onRedirect();
-    });
-
-    function onRedirect() {
-        openNewTab(modifiedUrl, () => showFeedbackPage());
-    }
+    openNewTab(modifiedUrl);
+    showFeedbackPage();
 }
 
 function createUrlToDesktopApp(urlSource) {

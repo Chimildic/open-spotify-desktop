@@ -19,16 +19,15 @@ function diffDays(dateOne, dateTwo) {
     return (dateOne - dateTwo) / (60 * 60 * 24 * 1000);
 }
 
-function openNewTab(url, callback) {
-    chrome.tabs.create({ url: url, selected: false }, callback);
+function openNewTab(url) {
+    return chrome.tabs.create({ url: url, selected: false });
 }
 
-function closeTab(tabId, callback) {
-    chrome.tabs.remove(tabId, callback);
+function closeTab(tabId) {
+    return chrome.tabs.remove(tabId);
 }
 
-function canCloseTab(callback) {
-    chrome.tabs.query({ currentWindow: true }, (tabs) => {
-        callback(tabs.length > 1);
-    });
+async function canCloseTab() {
+    let tabs = await chrome.tabs.query({ currentWindow: true });
+    return tabs.length > 1;
 }
