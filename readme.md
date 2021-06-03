@@ -1,6 +1,6 @@
 # Open Spotify Desktop
 
-The extension checks the URL parameters "open.spotify.com". If they are correct, the tab closes and the Spotify Desktop app opens. It works only in the case of a new tab (for example, when you click from a Reddit message) or when you refresh the page with the correct parameters for the redirection.
+The extension checks the URL parameters "open.spotify.com". If they are correct, the tab closes and the Spotify Desktop app opens. 
 
 For the first redirect, set the "always allow" option so that the redirect will work automatically in the future.
 
@@ -10,7 +10,7 @@ Available on  [Chrome Web Store](https://chrome.google.com/webstore/detail/pnbnp
 
 # Открыть в Spotify Desktop
 
-Расширение проверяет параметры адреса "open.spotify.com". Если они корректны, вкладка закроется, откроется приложение Spotify Desktop. Работает только в случае новой вкладки (например, при переходе из сообщения ВКонтакте) или при обновлении страницы с корректными параметрами для перехода.
+Расширение проверяет параметры адреса "open.spotify.com". Если они корректны, вкладка закроется, откроется приложение Spotify Desktop.
 
 При первом перенаправлении, установите параметр "всегда разрешать", чтобы в будущем перенаправление работало автоматически.
 
